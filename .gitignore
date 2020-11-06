@@ -1,0 +1,5 @@
+.DS_Store
+.babelrc
+.yo-rn.json
+config.json
+node_modules
