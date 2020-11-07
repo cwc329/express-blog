@@ -22,13 +22,11 @@ router.get('/page/:page', articleControllers.getArticlesCounts , articleControll
 
 router.get('/post', userControllers.checkPermission,(req, res, next) => {
   const viewsVariables = Object.assign(req.app.locals.viewsVariables, {isEditing: false})
-  console.log(res.locals.articles[0]);
   res.render('post', viewsVariables)
 });
 
 router.get('/post/:id', userControllers.checkPermission,articleControllers.getOne, (req, res, next) => {
   const viewsVariables = Object.assign(req.app.locals.viewsVariables, {isEditing: true})
-  console.log(res.locals.articles[0]);
   res.render('post', viewsVariables);
 });
 

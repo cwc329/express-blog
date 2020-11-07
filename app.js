@@ -5,7 +5,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const categoryControllers = require('./controllers/categoryControllers');
 const sess = {
-  secret: 'cwc329',
+  secret: process.env.secret,
   name: 'cwc329',
   resave: false,
   saveUninitialized: true
@@ -17,7 +17,7 @@ const userRouter = require('./routes/user');
 const { appendFileSync } = require('fs');
 
 const app = express();
-const port = 3001;
+const port = process.env.portBlog || 3001;
 
 // view engine setup
 
