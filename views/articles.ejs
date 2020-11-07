@@ -13,5 +13,22 @@
     <%  articles.forEach( article => { %>
       <%- include('./templates/card.ejs', {article}); %>
     <% }) %>
+    <% if(totalPage) { %>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <% if(currentPage === 1){ %>disabled<% } %>">
+          <a class="page-link" href="/articles/page/<%= currentPage - 1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <% for (let i = 1; i <= totalPage; i += 1) { %>
+          <li class="page-item <% if(i === currentPage){ %>active<% } %>" aria-current="page">
+            <a class="page-link" href="/articles/page/<%= i %>"><%= i %> <span class="sr-only">(current)</span></a>
+          </li>
+        <% } %>
+        <li class="page-item <% if(currentPage >= totalPage){ %>disabled<% } %>">
+          <a class="page-link" href="/articles/page/<%= currentPage + 1 %>">Next</a>
+        </li>
+      </ul>
+    </nav>
+    <% } %>
   </body>
 </html>

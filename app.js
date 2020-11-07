@@ -31,6 +31,7 @@ const init = (req, res, next) => {
   res.locals.userId = req.session.userId;
   res.locals.nickname = req.session.nickname;
   res.locals.path = req.path
+  res.locals.totalPage = 0;
   next()
 }
 

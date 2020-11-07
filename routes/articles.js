@@ -4,7 +4,7 @@ const articleControllers = require('../controllers/articleControllers');
 const categoryControllers = require('../controllers/categoryControllers');
 const userControllers = require('../controllers/usersControllers');
 
-router.get('/', articleControllers.getArticles, (req, res, next) => {
+router.get('/', articleControllers.getArticlesCounts, articleControllers.getArticles, (req, res, next) => {
   res.render('articles', req.app.locals.viewsVariables)
 });
 
@@ -16,7 +16,7 @@ router.get('/id/:id', articleControllers.getOne, function(req, res, next) {
   res.render('articles', req.app.locals.viewsVariables)
 });
 
-router.get('/page/:page', articleControllers.getArticles, (req, res, next) => {
+router.get('/page/:page', articleControllers.getArticlesCounts , articleControllers.getArticles, (req, res, next) => {
   res.render('articles', req.app.locals.viewsVariables)
 });
 
